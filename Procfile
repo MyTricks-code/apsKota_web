@@ -1,1 +1,1 @@
-web: gunicorn aps_kota.wsgi
+web: gunicorn aps_kota.wsgi 
