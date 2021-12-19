@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block start %}
+<style>
+    section{
+        margin-top: 15px;
+    }
+</style>
+<section class="py-6">
+    <div class="container">
+      <div class="row mb-5">
+        <!-- blog item-->
+        {% for post in posts%}
+        <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+          <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="/media/{{post.image}}" alt="..."/></a>
+            <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">{{post.user.username}}</a>
+              <h5 class="my-2"><a class="text-dark" href="post.html"></a>{{post.title}}</h5>
+              <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>{{post.created_at}}</p>
+              <p class="my-2 text-muted text-sm">{{post.intro}}</p><a class="btn btn-success" href="{% url 'post_detail' post.slug %}">Read more<i class="fa fa-long-arrow-alt-right ml-2"></i></a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+</section>
+    
+{% endblock %}

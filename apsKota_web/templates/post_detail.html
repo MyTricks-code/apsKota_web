@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+<section>
+    <div class="container">
+        
+        <div><h1 class="title text-center">{{post.title}}</h1></div>
+        <div><small class="subtitle text-right m-20 py-10">Created by {{post.user.username}} on {{post.created_at}}</small></div>
+        <div class="row text-center">
+            <div class="col-xl-10 mx-auto"><img class="img-fluid mb-5"
+                    src="/media/{{post.image}}"
+                    alt=""></div>
+        </div>
+        <div class="row">
+            <div class="col-xl-8 col-lg-10 mx-auto">
+                <div class="text-content">
+                    {{post.content|safe}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
