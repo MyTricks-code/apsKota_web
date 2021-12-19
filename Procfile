@@ -1,1 +1,1 @@
-web: gunicorn aps_kota.wsgi --log-file-
+web: gunicorn aps_kota.wsgi
