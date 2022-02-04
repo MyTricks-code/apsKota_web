@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+import django
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -76,13 +78,6 @@ WSGI_APPLICATION = 'aps_kota.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'ec2-52-71-217-158.compute-1.amazonaws.com',
@@ -90,6 +85,16 @@ DATABASES = {
 #     }
 # }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dd6kjvig86jg6c',
+        'USER': 'eeskvocowpbpch',
+        'PASSWORD': '407de6009443d6ade5d2f67aa9f42ceee0611b06c74695ffb6b8e8eab8a8abb0',
+        'HOST': 'ec2-52-71-217-158.compute-1.amazonaws.com',
+        'PORT': '5432'
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -129,8 +134,10 @@ USE_TZ = True
 
 #Added manually
 import os
+import django_heroku
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+django_heroku.settings(locals())
 
 # STATICFILES_DIR = {
 #     os.path.join(BASE_DIR, "public/static")
