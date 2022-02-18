@@ -22,3 +22,4 @@ class Post(models.Model):
         self.slug = generate_slug(self.title)
         super(Post, self).save(*args, **kwargs)
 
+Post.objects.order_by("created_at")
